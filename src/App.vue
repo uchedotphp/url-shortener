@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png" />
+    <img src="./assets/images/logo.svg" />
     <div>
       <p>
         If Element is successfully added to this project, you'll see an
@@ -22,7 +22,7 @@ export default {
 <style>
 @import url("https://fonts.google.com/specimen/Poppins");
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: "Poppins", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
