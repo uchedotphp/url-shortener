@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <div>Link shortener</div>
 </template>
 
 <script>

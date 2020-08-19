@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <div>GEt started</div>
 </template>
 
 <script>
