@@ -36,7 +36,8 @@ export default {
 
 :root {
   //testing with vh
-  font-size: calc(1.125em + 0.01vw);
+  font-size: 1.125em; //desired px(18px) / inherited px(16px)
+  // font-size: calc(1.125em + 0.01vw);
   box-sizing: border-box;
 }
 * {
@@ -48,6 +49,21 @@ export default {
 ::before,
 ::after {
   box-sizing: inherit;
+}
+
+body {
+  // font-size: 18px;
+  line-height: 1.2;
+  font-family: "Poppins", Helvetica, Arial, sans-serif;
+  background-color: #ffffff;
+}
+
+body * + * {
+  margin-top: 1.5em;
+}
+
+ul {
+  list-style: none;
 }
 
 // Defining standard variables and values
@@ -83,17 +99,24 @@ $veryDarkViolet: hsl(260, 8%, 14%);
   // }
 }
 
-body {
-  // font-size: 18px;
-  line-height: 1.2;
-  font-family: "Poppins", Helvetica, Arial, sans-serif;
+.button-link {
+  display: block;
+  padding: 0.5em;
+  color: #fff;
+  background-color: #0090c9;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
+// .button-link + .button-link {
+//   margin-top: 1.5em; //Only apply a top margin to button-links that immediately follow another button-link
+// }
+
 #app {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  max-width: 1440px;
+  margin: 20px auto;
+  background: blue;
+  font-weight: 500;
 }
 </style>
