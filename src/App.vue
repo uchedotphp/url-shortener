@@ -35,11 +35,11 @@ export default {
 @import url("https://fonts.google.com/specimen/Poppins");
 
 :root {
-  //testing with vh
   font-size: 1.125em; //desired px(18px) / inherited px(16px)
   // font-size: calc(1.125em + 0.01vw);
   box-sizing: border-box;
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -52,14 +52,31 @@ export default {
 }
 
 body {
-  // font-size: 18px;
   line-height: 1.2;
   font-family: "Poppins", Helvetica, Arial, sans-serif;
   background-color: #ffffff;
+  color: #929197;
+  // overflow: hidden;
 }
 
 body * + * {
   margin-top: 1.5em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #35333e;
+  letter-spacing: -0.1rem;
+  font-family: Poppins;
+}
+
+ul,
+p {
+  font-size: 1rem;
 }
 
 ul {
@@ -85,11 +102,11 @@ $veryDarkViolet: hsl(260, 8%, 14%);
 // }
 
 // media queries
-@media (max-width: 8375px) {
+@media (max-width: 375px) {
   //for mobile views
-  // :root {
-  //   font-size: 0.875em;
-  // }
+  :root {
+    font-size: 1em;
+  }
 }
 
 @media (min-width: 1440px) {
@@ -97,6 +114,12 @@ $veryDarkViolet: hsl(260, 8%, 14%);
   // :root {
   //   font-size: 0.875em;
   // }
+}
+
+.rounded-button {
+  background: hsl(180, 66%, 49%);
+  color: #fff;
+  text-transform: capitalize;
 }
 
 .button-link {
@@ -114,8 +137,9 @@ $veryDarkViolet: hsl(260, 8%, 14%);
 // }
 
 #app {
-  max-width: 1440px;
-  margin: 20px auto;
+  // max-width: 1440px;
+  max-width: 77.83783783783784vw;
+  margin: 1.25em auto;
   background: blue;
   font-weight: 500;
 }
