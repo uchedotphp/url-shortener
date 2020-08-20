@@ -2,7 +2,7 @@
   <div class="getStarted">
     <div class="content doubled-container">
       <h2>Boost your links today</h2>
-      <button>Get Started</button>
+      <button class="rounded-button">Get Started</button>
     </div>
   </div>
 </template>

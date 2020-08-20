@@ -113,9 +113,17 @@ $veryDarkViolet: hsl(260, 8%, 14%);
 }
 
 .rounded-button {
+  display: inline-block;
+  border: none;
+  border-radius: 50px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1em;
+  font-weight: 700;
+  text-transform: capitalize;
   background: hsl(180, 66%, 49%);
   color: #fff;
-  text-transform: capitalize;
+  padding: 1em 3em;
 }
 
 .button-link {

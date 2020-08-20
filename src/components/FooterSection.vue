@@ -4,7 +4,7 @@
       <el-row :gutter="20">
         <el-col :span="8">
           <div class="grid-content">
-            <img class="footer-logo" src="./../assets/images/logo.svg" alt="logo" srcset />
+            <img class="footer-logo" src="./../assets/images/white-logo.svg" alt="logo" srcset />
           </div>
         </el-col>
         <el-col :span="4">
