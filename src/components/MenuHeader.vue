@@ -1,5 +1,5 @@
 <template>
-  <nav>
+  <nav class="doubled-container">
     <ul class="site-nav">
       <span>
         <img src="./../assets/images/logo.svg" />
