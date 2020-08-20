@@ -1,7 +1,7 @@
 <template>
   <div class="getStarted">
     <div class="content doubled-container">
-      <h2>Boost your links today</h2>
+      <h1>Boost your links today</h1>
       <button class="rounded-button">Get Started</button>
     </div>
   </div>
@@ -28,7 +28,7 @@ export default {
   text-align: center;
 }
 
-.content h2 {
+.content h1 {
   color: #fff;
 }
 </style>
