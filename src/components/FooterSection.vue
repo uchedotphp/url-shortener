@@ -63,7 +63,12 @@
             <ul class="social-links">
               <li>
                 <a href="#">
-                  <img src="./../assets/images/icon-facebook.svg" alt="facebook" srcset />
+                  <img
+                    class="facebook"
+                    src="./../assets/images/icon-facebook.svg"
+                    alt="facebook"
+                    srcset
+                  />
                 </a>
               </li>
               <li>
@@ -150,8 +155,11 @@ footer {
   background: none;
 }
 
-.social-links li a img:hover {
-  // background: red;
-  color: red;
+.facebook {
+  background: none;
+}
+
+.facebook:hover {
+  background-image: url("./../assets/images/icon-facebook-hovered.svg");
 }
 </style>

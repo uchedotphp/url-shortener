@@ -26,41 +26,43 @@
         </el-form>
       </div>
     </div>
-    <el-row class="results">
-      <el-col :xs="24" :span="16">
-        <div class="grid-content bg-purple">
-          <p>https://www.frontendmentor.io</p>
-        </div>
-      </el-col>
-      <el-col :xs="24" :span="5" style="margin-top: 0">
-        <div class="grid-content bg-purple-light">
-          <a href="#">https://rel.ink/k4lKyk</a>
-        </div>
-      </el-col>
-      <el-col :xs="24" :span="3" style="margin-top: 0">
-        <div class="bg-purple">
-          <button class="rounded-button" type="button">copy</button>
-        </div>
-      </el-col>
-    </el-row>
 
-    <el-row class="results">
-      <el-col :xs="24" :span="16">
-        <div class="grid-content bg-purple">
-          <p>https://www.frontendmentor.io</p>
-        </div>
-      </el-col>
-      <el-col :xs="24" :span="5" style="margin-top: 0">
-        <div class="grid-content bg-purple-light">
-          <a href="#">https://rel.ink/k4lKyk</a>
-        </div>
-      </el-col>
-      <el-col :xs="24" :span="3" style="margin-top: 0; vertical-align: text-top">
-        <div class="bg-purple">
-          <button class="rounded-button" type="button">copy</button>
-        </div>
-      </el-col>
-    </el-row>
+    <div v-if="showReseutls = true">
+      <el-row class="results">
+        <el-col :xs="24" :span="16">
+          <div class="grid-content bg-purple">
+            <p>https://www.frontendmentor.io</p>
+          </div>
+        </el-col>
+        <el-col :xs="24" :span="5" style="margin-top: 0">
+          <div class="grid-content bg-purple-light">
+            <a href="#">https://rel.ink/k4lKyk</a>
+          </div>
+        </el-col>
+        <el-col :xs="24" :span="3" style="margin-top: 0">
+          <div class="bg-purple">
+            <button class="rounded-button" type="button">copy</button>
+          </div>
+        </el-col>
+      </el-row>
+      <el-row class="results">
+        <el-col :xs="24" :span="16">
+          <div class="grid-content bg-purple">
+            <p>https://www.frontendmentor.io</p>
+          </div>
+        </el-col>
+        <el-col :xs="24" :span="5" style="margin-top: 0">
+          <div class="grid-content bg-purple-light">
+            <a href="#">https://rel.ink/k4lKyk</a>
+          </div>
+        </el-col>
+        <el-col :xs="24" :span="3" style="margin-top: 0; vertical-align: text-top">
+          <div class="bg-purple">
+            <button class="rounded-button" type="button">copy</button>
+          </div>
+        </el-col>
+      </el-row>
+    </div>
   </div>
 </template>
 
@@ -72,6 +74,7 @@ export default {
       ruleForm: {
         link: ""
       },
+      showReseutls: false,
       rules: {
         link: [
           {
