@@ -98,7 +98,7 @@ export default {
 <style lang="scss" scoped>
 a:link,
 a:visited {
-  color: #76737a;
+  color: hsl(0, 0%, 75%);
   text-decoration: none;
 }
 
@@ -123,6 +123,7 @@ footer {
 
 .grid-content ul {
   color: #fff;
+  text-transform: capitalize;
 }
 
 // .grid-content ul li > a {

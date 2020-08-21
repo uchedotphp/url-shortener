@@ -124,6 +124,11 @@ $veryDarkViolet: hsl(260, 8%, 14%);
   background: hsl(180, 66%, 49%);
   color: #fff;
   padding: 1em 3em;
+  cursor: pointer;
+}
+
+.rounded-button:hover {
+  background-color: #9be3e2;
 }
 
 .button-link {

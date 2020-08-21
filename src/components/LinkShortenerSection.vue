@@ -1,25 +1,66 @@
 <template>
-  <div class="shortener doubled-container">
-    <div class="input-area">
-      <el-form :model="ruleForm" :rules="rules" ref="ruleForm">
-        <el-row :gutter="20">
-          <el-col :xs="24" :span="19">
-            <el-form-item prop="link">
-              <input
-                class="link-input"
-                v-model="ruleForm.link"
-                placeholder="Shorten a link here..."
-              />
-            </el-form-item>
-          </el-col>
-          <el-col :xs="24" :span="5" style="margin-top: 0">
-            <el-form-item>
-              <button class="submit-link" type="button" @click="submitForm('ruleForm')">Shorten It!</button>
-            </el-form-item>
-          </el-col>
-        </el-row>
-      </el-form>
+  <div class="house doubled-container">
+    <div class="shortener">
+      <div class="input-area">
+        <el-form :model="ruleForm" :rules="rules" ref="ruleForm">
+          <el-row :gutter="20">
+            <el-col :xs="24" :span="19">
+              <el-form-item prop="link">
+                <input
+                  class="link-input"
+                  v-model="ruleForm.link"
+                  placeholder="Shorten a link here..."
+                />
+              </el-form-item>
+            </el-col>
+            <el-col :xs="24" :span="5" style="margin-top: 0">
+              <el-form-item>
+                <button
+                  class="submit-link"
+                  type="button"
+                  @click="submitForm('ruleForm')"
+                >Shorten It!</button>
+              </el-form-item>
+            </el-col>
+          </el-row>
+        </el-form>
+      </div>
     </div>
+    <el-row class="results">
+      <el-col :xs="24" :span="16">
+        <div class="grid-content bg-purple">
+          <p>https://www.frontendmentor.io</p>
+        </div>
+      </el-col>
+      <el-col :xs="24" :span="5" style="margin-top: 0">
+        <div class="grid-content bg-purple-light">
+          <a href="#">https://rel.ink/k4lKyk</a>
+        </div>
+      </el-col>
+      <el-col :xs="24" :span="3" style="margin-top: 0">
+        <div class="bg-purple">
+          <button class="rounded-button" type="button">copy</button>
+        </div>
+      </el-col>
+    </el-row>
+
+    <el-row class="results">
+      <el-col :xs="24" :span="16">
+        <div class="grid-content bg-purple">
+          <p>https://www.frontendmentor.io</p>
+        </div>
+      </el-col>
+      <el-col :xs="24" :span="5" style="margin-top: 0">
+        <div class="grid-content bg-purple-light">
+          <a href="#">https://rel.ink/k4lKyk</a>
+        </div>
+      </el-col>
+      <el-col :xs="24" :span="3" style="margin-top: 0; vertical-align: text-top">
+        <div class="bg-purple">
+          <button class="rounded-button" type="button">copy</button>
+        </div>
+      </el-col>
+    </el-row>
   </div>
 </template>
 
@@ -35,7 +76,7 @@ export default {
         link: [
           {
             required: true,
-            message: "Please provide an input",
+            message: "Please add a link",
             trigger: "blur"
           }
         ]
@@ -59,18 +100,32 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.shortener {
+.house {
   position: relative;
   top: -5em;
-  // display: flex;
+}
+
+.shortener {
   background-color: hsl(257, 27%, 26%);
   background-image: url("./../assets/images/bg-shorten-desktop.svg");
   background-repeat: no-repeat;
   background-size: cover;
-  // position: relative;
-  // background-position: right center;
   border-radius: 15px;
-  padding: 3em;
+  padding: 4em;
+}
+
+.results {
+  border-radius: 15px;
+  padding: 2em;
+  background: #fff;
+}
+
+.grid-content {
+  padding: 1em 0;
+}
+
+.grid-content p {
+  color: #000;
 }
 
 .link-input {
@@ -86,15 +141,34 @@ export default {
 }
 
 .submit-link {
+  text-decoration: none;
   display: block;
   color: #fff;
   width: 100%;
   border-radius: 15px;
   border: none;
   background-color: hsl(180, 66%, 49%);
-  padding: 1.5em 5em;
-  font-size: 16px;
+  padding: 0.9em 1em;
+  font-size: 1.7em;
+  font-weight: 700;
+  text-transform: capitalize;
   cursor: pointer;
   text-align: center;
 }
+
+.submit-link:hover {
+  background-color: #9be3e2;
+}
+
+.el-form-item {
+  margin-bottom: 0;
+}
+
+.rounded-button {
+  border-radius: 5px;
+}
+
+// .el-form-item__error {
+//   font-size: 2em !important;
+// }
 </style>
