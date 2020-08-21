@@ -18,7 +18,7 @@
                 <button
                   class="submit-link"
                   type="button"
-                  @click="submitForm('ruleForm')"
+                  @click="shortenLink('ruleForm')"
                 >Shorten It!</button>
               </el-form-item>
             </el-col>
@@ -88,7 +88,7 @@ export default {
   },
 
   methods: {
-    submitForm(formName) {
+    shortenLink(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
           alert("submit!");
