@@ -19,9 +19,7 @@
                   class="submit-link"
                   type="button"
                   @click="shortenLink('ruleForm')"
-                >
-                  Shorten It!
-                </button>
+                >Shorten It!</button>
               </el-form-item>
             </el-col>
           </el-row>
@@ -29,40 +27,19 @@
       </div>
     </div>
 
-    <div v-if="(showReseutls = true)">
-      <el-row class="results">
+    <div v-if="localStorageLinks">
+      <el-row class="results" v-for="links in localStorageLinks" :key="links.hashid">
         <el-col :xs="24" :span="16">
           <div class="grid-content bg-purple">
-            <p>https://www.frontendmentor.io</p>
+            <p>{{links.url.substring(0, 50)}}...</p>
           </div>
         </el-col>
         <el-col :xs="24" :span="5" style="margin-top: 0">
           <div class="grid-content bg-purple-light">
-            <a href="#">https://rel.ink/k4lKyk</a>
+            <a href="#">https://rel.ink/{{links.hashid}}</a>
           </div>
         </el-col>
         <el-col :xs="24" :span="3" style="margin-top: 0">
-          <div class="bg-purple">
-            <button class="rounded-button" type="button">copy</button>
-          </div>
-        </el-col>
-      </el-row>
-      <el-row class="results">
-        <el-col :xs="24" :span="16">
-          <div class="grid-content bg-purple">
-            <p>https://www.frontendmentor.io</p>
-          </div>
-        </el-col>
-        <el-col :xs="24" :span="5" style="margin-top: 0">
-          <div class="grid-content bg-purple-light">
-            <a href="#">https://rel.ink/k4lKyk</a>
-          </div>
-        </el-col>
-        <el-col
-          :xs="24"
-          :span="3"
-          style="margin-top: 0; vertical-align: text-top"
-        >
           <div class="bg-purple">
             <button class="rounded-button" type="button">copy</button>
           </div>
@@ -73,12 +50,14 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "LinkShortenerSectionComponent",
   data() {
     return {
+      localStorageLinks: JSON.parse(localStorage.getItem("urls")),
       ruleForm: {
-        link: "",
+        link: ""
       },
       showReseutls: false,
       rules: {
@@ -86,25 +65,39 @@ export default {
           {
             required: true,
             message: "Please add a link",
-            trigger: "blur",
-          },
-        ],
-      },
+            trigger: "blur"
+          }
+        ]
+      }
     };
   },
 
   methods: {
     shortenLink(formName) {
-      this.$refs[formName].validate((valid) => {
+      this.$refs[formName].validate(valid => {
         if (valid) {
-          return this.$store
-            .dispatch("shortenLink", {
-              url: this.ruleForm.link,
+          // return this.$store
+          //   .dispatch("shortenLink", {
+          //     url: this.ruleForm.link,
+          //   })
+          //   .then((response) => {
+          //     console.log(response);
+          //   })
+          //   .catch((err) => {
+          //     console.error(err);
+          //   });
+          return axios
+            .post("https://rel.ink/api/links/", {
+              url: this.ruleForm.link
             })
-            .then((response) => {
-              console.log(response);
+            .then(({ data }) => {
+              console.log(data);
+              let urls = JSON.parse(localStorage.getItem("urls")) || [];
+
+              urls.push(data);
+              localStorage.setItem("urls", JSON.stringify(urls));
             })
-            .catch((err) => {
+            .catch(err => {
               console.error(err);
             });
         } else {
@@ -112,8 +105,16 @@ export default {
           return false;
         }
       });
-    },
+    }
   },
+
+  mounted() {
+    console.log(this.localStorageLinks);
+    // getLinks(){
+    // this.localStorageLinks = JSON.parse(localStorage.getItem("urls"));
+    // console.log(this.localStorageLinks);
+    // }
+  }
 };
 </script>
 
