@@ -23,8 +23,8 @@ export default {
     JumbotronSection,
     AdvancedStatisticsSection,
     GetStartedSection,
-    FooterSection
-  }
+    FooterSection,
+  },
 };
 </script>
 
@@ -146,10 +146,6 @@ $veryDarkViolet: hsl(260, 8%, 14%);
 // }
 
 #app {
-  // max-width: 1440px;
-  // max-width: 77.83783783783784vw;
-  // background: blue;
-  // margin-top: 1.25em;
   font-weight: 500;
 }
 

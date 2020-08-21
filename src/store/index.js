@@ -18,7 +18,7 @@ export default new Vuex.Store({
       return axios
         .post("https://rel.ink/api/links/", urlDetails)
         .then(({ data }) => {
-          commit("SET_URL", urlDetails);
+          commit("SET_URL", data);
           console.log(data);
         });
     },
