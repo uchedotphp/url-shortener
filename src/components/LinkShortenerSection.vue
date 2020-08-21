@@ -19,7 +19,9 @@
                   class="submit-link"
                   type="button"
                   @click="shortenLink('ruleForm')"
-                >Shorten It!</button>
+                >
+                  Shorten It!
+                </button>
               </el-form-item>
             </el-col>
           </el-row>
@@ -27,7 +29,7 @@
       </div>
     </div>
 
-    <div v-if="showReseutls = true">
+    <div v-if="(showReseutls = true)">
       <el-row class="results">
         <el-col :xs="24" :span="16">
           <div class="grid-content bg-purple">
@@ -56,7 +58,11 @@
             <a href="#">https://rel.ink/k4lKyk</a>
           </div>
         </el-col>
-        <el-col :xs="24" :span="3" style="margin-top: 0; vertical-align: text-top">
+        <el-col
+          :xs="24"
+          :span="3"
+          style="margin-top: 0; vertical-align: text-top"
+        >
           <div class="bg-purple">
             <button class="rounded-button" type="button">copy</button>
           </div>
@@ -72,7 +78,7 @@ export default {
   data() {
     return {
       ruleForm: {
-        link: ""
+        link: "",
       },
       showReseutls: false,
       rules: {
@@ -80,25 +86,34 @@ export default {
           {
             required: true,
             message: "Please add a link",
-            trigger: "blur"
-          }
-        ]
-      }
+            trigger: "blur",
+          },
+        ],
+      },
     };
   },
 
   methods: {
     shortenLink(formName) {
-      this.$refs[formName].validate(valid => {
+      this.$refs[formName].validate((valid) => {
         if (valid) {
-          alert("submit!");
+          return this.$store
+            .dispatch("shortenLink", {
+              url: this.ruleForm.link,
+            })
+            .then((response) => {
+              console.log(response);
+            })
+            .catch((err) => {
+              console.error(err);
+            });
         } else {
           console.log("error submit!!");
           return false;
         }
       });
-    }
-  }
+    },
+  },
 };
 </script>
 
