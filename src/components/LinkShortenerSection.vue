@@ -155,6 +155,14 @@ export default {
   .el-form-item input {
     margin-bottom: 2em;
   }
+
+  .results {
+    // overflow: hidden;
+  }
+
+  .bg-purple {
+    overflow: hidden;
+  }
 }
 
 .house {
