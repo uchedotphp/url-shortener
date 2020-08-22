@@ -2,12 +2,12 @@
   <footer>
     <div class="doubled-container">
       <el-row :gutter="20">
-        <el-col :span="8">
+        <el-col :xs="24" :span="8">
           <div class="grid-content">
             <img class="footer-logo" src="./../assets/images/white-logo.svg" alt="logo" srcset />
           </div>
         </el-col>
-        <el-col :span="4">
+        <el-col :xs="24" :span="4">
           <div class="grid-content bg-purple">
             <ul>
               Features
@@ -23,7 +23,7 @@
             </ul>
           </div>
         </el-col>
-        <el-col :span="4">
+        <el-col :xs="24" :span="4">
           <div class="grid-content bg-purple">
             <ul>
               Resources
@@ -39,7 +39,7 @@
             </ul>
           </div>
         </el-col>
-        <el-col :span="4">
+        <el-col :xs="24" :span="4">
           <div class="grid-content bg-purple">
             <ul>
               Company
@@ -58,7 +58,7 @@
             </ul>
           </div>
         </el-col>
-        <el-col :span="4">
+        <el-col :xs="24" :span="4">
           <div class="grid-content bg-purple">
             <ul class="social-links">
               <li>
@@ -101,6 +101,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@media (max-width: 500px) {
+  .grid-content > img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .grid-content ul {
+    text-align: center;
+    margin-top: 3em;
+  }
+}
 a:link,
 a:visited {
   color: hsl(0, 0%, 75%);
@@ -120,6 +132,7 @@ footer {
 
 .el-col {
   margin-top: 0;
+  // text-align: center;
 }
 
 .footer-logo {

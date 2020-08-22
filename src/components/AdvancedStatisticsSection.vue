@@ -10,7 +10,7 @@
         </p>
       </div>
       <div class="cards">
-        <el-row type="flex" class="row-bg" justify="space-around">
+        <el-row>
           <el-col :xs="24" :span="6" class="card-container">
             <div class="grid-content card">
               <div class="img-box">
@@ -76,6 +76,14 @@ export default {
   .advanced h2 {
     font-size: 15em;
   }
+
+  .img-box {
+    left: 6.5em !important;
+  }
+
+  .card .body h3 {
+    text-align: center;
+  }
 }
 
 .advanced {
@@ -102,7 +110,14 @@ export default {
 }
 
 .cards {
-  padding-bottom: 10em;
+  padding-bottom: 5em;
+  margin-top: 0;
+}
+
+.cards .el-row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .card {
@@ -110,7 +125,6 @@ export default {
   background: #fff;
   max-width: 500px;
   margin: auto;
-  // text-align: center;
 }
 
 // .card-container:after {
@@ -134,21 +148,6 @@ export default {
 //   height: 100%;
 // }
 
-.one {
-  ::after {
-    top: 10px;
-    right: 8em;
-    width: 20px;
-    content: "";
-    display: inline;
-    background-color: yellow;
-    height: 100%;
-    transform: rotate(90deg);
-    position: absolute;
-    // z-index: 1;
-  }
-}
-
 // .card-container * + * {
 //   margin-top: 3.5em;
 // }
@@ -156,6 +155,10 @@ export default {
 .card .body {
   padding: 0 2em 2em;
   margin-top: 0;
+}
+
+.card .body h3 {
+  text-transform: capitalize;
 }
 
 .card .body p {
