@@ -14,11 +14,7 @@
           <el-col :xs="24" :span="6" class="card-container">
             <div class="grid-content card">
               <div class="img-box">
-                <img
-                  src="./../assets/images/icon-brand-recognition.svg"
-                  alt
-                  srcset
-                />
+                <img src="./../assets/images/icon-brand-recognition.svg" alt srcset />
               </div>
               <div class="body">
                 <h3>Brand recognition</h3>
@@ -30,14 +26,10 @@
               </div>
             </div>
           </el-col>
-          <el-col :xs="24" :span="6" style="margin-top: 3em">
+          <el-col :xs="24" :span="6" style="margin-top: 3em" class="card-container">
             <div class="grid-content card">
               <div class="img-box">
-                <img
-                  src="./../assets/images/icon-detailed-records.svg"
-                  alt
-                  srcset
-                />
+                <img src="./../assets/images/icon-detailed-records.svg" alt srcset />
               </div>
               <div class="body">
                 <h3>detailed records</h3>
@@ -49,14 +41,10 @@
               </div>
             </div>
           </el-col>
-          <el-col :xs="24" :span="6" style="margin-top: 6em">
+          <el-col :xs="24" :span="6" style="margin-top: 6em;" class="card-container">
             <div class="grid-content card">
               <div class="img-box">
-                <img
-                  src="./../assets/images/icon-fully-customizable.svg"
-                  alt
-                  srcset
-                />
+                <img src="./../assets/images/icon-fully-customizable.svg" alt srcset />
               </div>
               <div class="body">
                 <h3>fully customizable</h3>
@@ -78,12 +66,22 @@ import LinkShortenerSection from "@/components/LinkShortenerSection";
 export default {
   name: "AdvancedStatisticsSectionComponent",
   components: {
-    LinkShortenerSection,
-  },
+    LinkShortenerSection
+  }
 };
 </script>
 
 <style lang="scss" scoped>
+@media (max-width: 500px) {
+  .card-container {
+    flex-flow: column wrap;
+  }
+
+  .card {
+    flex-flow: column wrap;
+  }
+}
+
 .advanced {
   background: #f0f1f6;
   position: relative;
@@ -116,6 +114,42 @@ export default {
   max-width: 500px;
   margin: auto;
   // text-align: center;
+}
+
+// .card-container:after {
+//   // width: 150px;
+//   // content: "";
+//   // display: inline-block;
+//   // // top: 10%;
+//   // // left: 4%;
+//   // border-radius: 20px;
+//   // background-color: yellow;
+//   // height: 100%;
+//   // width: 100%;
+//   // position: absolute;
+//   // z-index: -1;
+//   top: 10px;
+//   right: 4%;
+//   width: 20px;
+//   content: "";
+//   display: inline-block;
+//   background-color: yellow;
+//   height: 100%;
+// }
+
+.one {
+  ::after {
+    top: 10px;
+    right: 8em;
+    width: 20px;
+    content: "";
+    display: inline;
+    background-color: yellow;
+    height: 100%;
+    transform: rotate(90deg);
+    position: absolute;
+    // z-index: 1;
+  }
 }
 
 // .card-container * + * {

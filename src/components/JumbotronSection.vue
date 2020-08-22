@@ -1,6 +1,6 @@
 <template>
-  <div class="jumbotron">
-    <div class="main doubled-container">
+  <div class="jumbotron doubled-container">
+    <div class="main">
       <div class="jumbotron-text-area">
         <h1>More than just shorter links</h1>
         <p>Build your brand's recognition and get detailed insights on how your links are performing.</p>
@@ -22,6 +22,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@media (max-width: 500px) {
+  .jumbotron-text-area {
+    // max-width: 3.75rem;
+  }
+
+  .jumbotron .main .jumbotron-text-area h1 {
+    // font-size: 0px;
+  }
+}
+
 .jumbotron {
   // margin: 1.5em -11.1vw 1.5em 0;
   // background-color: red;
@@ -30,26 +40,36 @@ export default {
 }
 
 .main {
+  // background: red;
   display: flex;
+  position: relative;
+  justify-content: space-between;
+  // justify-content: flex-end;
 }
 
 .jumbotron .main .jumbotron-text-area {
   // justify-content: flex-start;
   // background-color: aquamarine;
   padding: 5em 0;
-  // max-width: 700px;
-  max-width: 43.75rem;
+  max-width: 700px;
+  // max-width: 43.75rem;
 }
 
 .jumbotron .main .jumbotron-text-area h1 {
-  font-size: 4.5rem;
+  font-size: 5rem;
 }
 
 .jumbotron .main .jumbotron-text-area p {
   font-size: 1.2rem;
+  line-height: 2;
 }
 
 .image-area {
+  // background: green;
+  position: relative;
+  right: -4em;
+  top: 0;
+  margin-top: 0;
   // margin-right: -16.76vw;
   // margin-right: -11.1vw;
   // justify-content: flex-end;

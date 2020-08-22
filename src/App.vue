@@ -54,7 +54,7 @@ body {
   font-weight: 500;
   background-color: #ffffff;
   color: #929197;
-  // overflow: hidden;
+  overflow-x: hidden;
 }
 
 body * + * {

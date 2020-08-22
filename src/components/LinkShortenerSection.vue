@@ -78,24 +78,6 @@ export default {
   },
 
   methods: {
-    test(formName) {
-      this.$refs[formName].validate(valid => {
-        if (valid) {
-          return axios
-            .post("https://rel.ink/api/links/", {
-              url: this.ruleForm.link
-            })
-            .then(response => {
-              console.log(response);
-            })
-            .catch(err => {
-              console.error(err);
-            });
-        } else {
-          console.log("bad");
-        }
-      });
-    },
     shortenLink(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
@@ -142,10 +124,6 @@ export default {
         }
       });
     }
-  },
-
-  mounted() {
-    // console.log(this.localStorageLinks);
   }
 };
 </script>
@@ -154,6 +132,10 @@ export default {
 @media (max-width: 500px) {
   .el-form-item input {
     margin-bottom: 2em;
+  }
+
+  .shortener {
+    padding: 2em !important;
   }
 
   .results {
