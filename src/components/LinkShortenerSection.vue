@@ -151,6 +151,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@media (max-width: 500px) {
+  .el-form-item input {
+    margin-bottom: 2em;
+  }
+}
+
 .house {
   position: relative;
   top: -5em;

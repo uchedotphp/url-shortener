@@ -23,8 +23,8 @@ export default {
     JumbotronSection,
     AdvancedStatisticsSection,
     GetStartedSection,
-    FooterSection,
-  },
+    FooterSection
+  }
 };
 </script>
 
