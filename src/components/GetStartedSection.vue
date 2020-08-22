@@ -18,6 +18,10 @@ export default {
   .content {
     font-size: 0.9em;
   }
+
+  .content > button {
+    font-size: 1.5em;
+  }
 }
 
 .getStarted {
@@ -37,9 +41,5 @@ export default {
 
 .content h1 {
   color: #fff;
-}
-
-.content > button {
-  font-size: 1.5em;
 }
 </style>

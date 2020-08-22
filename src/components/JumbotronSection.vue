@@ -23,12 +23,26 @@ export default {
 
 <style lang="scss" scoped>
 @media (max-width: 500px) {
+  .main {
+    // display: none;
+  }
+  .image-area {
+    order: -1;
+    margin-top: 0;
+  }
+
   .jumbotron-text-area {
+    text-align: center;
     // max-width: 3.75rem;
+    // font-size: 1em;
   }
 
   .jumbotron .main .jumbotron-text-area h1 {
-    // font-size: 0px;
+    font-size: 2em !important;
+  }
+
+  .jumbotron .main .jumbotron-text-area p {
+    font-size: 1em !important;
   }
 }
 
@@ -43,6 +57,7 @@ export default {
   // background: red;
   display: flex;
   position: relative;
+  flex-wrap: wrap;
   justify-content: space-between;
   // justify-content: flex-end;
 }
@@ -50,7 +65,7 @@ export default {
 .jumbotron .main .jumbotron-text-area {
   // justify-content: flex-start;
   // background-color: aquamarine;
-  padding: 5em 0;
+  padding: 3em 0;
   max-width: 700px;
   // max-width: 43.75rem;
 }
@@ -65,28 +80,13 @@ export default {
 }
 
 .image-area {
-  // background: green;
-  position: relative;
-  right: -4em;
-  top: 0;
-  margin-top: 0;
-  // margin-right: -16.76vw;
-  // margin-right: -11.1vw;
-  // justify-content: flex-end;
-  // background-color: green;
-  // margin-top: 0;
-  // background-image: url("./../assets/images/illustration-working.svg");
-  // background-repeat: no-repeat;
-  // background-size: contain;
   // position: relative;
-  // background-position: right center;
-}
-
-.jumbotron .image-area .image {
+  // right: -4em;s
+  margin-top: 0;
 }
 
 .jumbotron .image-area .image > img {
-  // width: 100%;
+  width: 100%;
   max-width: 100%;
   height: auto;
 }

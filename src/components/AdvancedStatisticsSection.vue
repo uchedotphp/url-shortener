@@ -73,12 +73,8 @@ export default {
 
 <style lang="scss" scoped>
 @media (max-width: 500px) {
-  .card-container {
-    flex-flow: column wrap;
-  }
-
-  .card {
-    flex-flow: column wrap;
+  .advanced h2 {
+    font-size: 15em;
   }
 }
 
@@ -89,12 +85,13 @@ export default {
 
 .advanced .welcome {
   max-width: 500px;
+  // background: green;
   margin: auto;
 }
 
 .advanced h2 {
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.5em;
   text-transform: capitalize;
 }
 
