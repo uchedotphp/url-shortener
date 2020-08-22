@@ -34,7 +34,7 @@
             <p>{{links.url.substring(0, 50)}}...</p>
           </div>
         </el-col>
-        <el-col :xs="24" :span="5" style="margin-top: 0">
+        <el-col :xs="24" :span="5" class="divider" style="margin-top: 0">
           <div class="grid-content bg-purple-light">
             <a href="#">https://rel.ink/{{links.hashid}}</a>
           </div>
@@ -145,6 +145,14 @@ export default {
   .bg-purple {
     overflow: hidden;
   }
+
+  .bg-purple > button {
+    width: 100%;
+  }
+
+  .divider {
+    border-top: 1px solid black;
+  }
 }
 
 .house {
@@ -173,6 +181,10 @@ export default {
 
 .grid-content p {
   color: #000;
+}
+
+.bg-purple-light a {
+  text-decoration: none;
 }
 
 .link-input {
