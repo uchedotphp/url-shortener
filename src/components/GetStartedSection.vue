@@ -14,6 +14,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@media (max-width: 500px) {
+  .content {
+    font-size: 0.9em;
+  }
+}
+
 .getStarted {
   margin-top: 0;
   background-color: hsl(257, 27%, 26%);
@@ -26,9 +32,14 @@ export default {
 .content {
   max-width: 500px;
   text-align: center;
+  padding: 0 1.2em;
 }
 
 .content h1 {
   color: #fff;
+}
+
+.content > button {
+  font-size: 1.5em;
 }
 </style>

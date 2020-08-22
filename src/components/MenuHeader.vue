@@ -79,12 +79,14 @@ export default {
   }
 
   .topnav #myLinks {
-    // display: none;
     background: hsl(257, 27%, 26%);
     border-radius: 15px;
     padding: 2.5em 2em;
+    width: 78vmin;
     text-align: center;
     margin-top: 1em;
+    position: fixed;
+    z-index: 1;
   }
 
   .topnav a {
