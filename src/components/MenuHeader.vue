@@ -18,7 +18,7 @@
           <a href="#">login</a>
         </li>
         <li>
-          <button class="signupButton" type="button">sign up</button>
+          <button class="rounded-button" type="button">sign up</button>
         </li>
       </span>
     </ul>
