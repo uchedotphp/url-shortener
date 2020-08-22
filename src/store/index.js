@@ -11,6 +11,10 @@ export default new Vuex.Store({
   mutations: {
     SET_URL(state, urlDetails) {
       state.shortenedUrls.push(urlDetails);
+      let urls = JSON.parse(localStorage.getItem("urls")) || [];
+
+      urls.push(urlDetails);
+      localStorage.setItem("urls", JSON.stringify(urls));
     },
   },
   actions: {

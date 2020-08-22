@@ -71,35 +71,71 @@ export default {
       }
     };
   },
+  computed: {
+    storage() {
+      return JSON.parse(localStorage.getItem("urls"));
+    }
+  },
 
   methods: {
+    test(formName) {
+      this.$refs[formName].validate(valid => {
+        if (valid) {
+          return axios
+            .post("https://rel.ink/api/links/", {
+              url: this.ruleForm.link
+            })
+            .then(response => {
+              console.log(response);
+            })
+            .catch(err => {
+              console.error(err);
+            });
+        } else {
+          console.log("bad");
+        }
+      });
+    },
     shortenLink(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
-          // return this.$store
-          //   .dispatch("shortenLink", {
-          //     url: this.ruleForm.link,
-          //   })
-          //   .then((response) => {
-          //     console.log(response);
-          //   })
-          //   .catch((err) => {
-          //     console.error(err);
-          //   });
+          console.log(this.ruleForm.link);
+          // if (localStorage.getItem("urls") !== null) {
+          //   const found = JSON.parse(localStorage.getItem("urls")).find(
+          //     link => {
+          //       return link.url === this.ruleForm.link;
+          //     }
+          //   );
+          //   if (found == undefined) {
           return axios
             .post("https://rel.ink/api/links/", {
               url: this.ruleForm.link
             })
             .then(({ data }) => {
-              console.log(data);
               let urls = JSON.parse(localStorage.getItem("urls")) || [];
 
               urls.push(data);
               localStorage.setItem("urls", JSON.stringify(urls));
+              this.$refs[formName].resetFields();
+
+              this.$notify({
+                title: "Success",
+                message: "URL Link Shorten successfully",
+                type: "success"
+              });
             })
             .catch(err => {
               console.error(err);
             });
+          // }
+          // else {
+          //   this.$notify.error({
+          //     title: "Error",
+          //     message: "Sorry but that URL link is in your result list"
+          //   });
+          // }
+          // return;
+          // }
         } else {
           console.log("error submit!!");
           return false;
@@ -109,11 +145,7 @@ export default {
   },
 
   mounted() {
-    console.log(this.localStorageLinks);
-    // getLinks(){
-    // this.localStorageLinks = JSON.parse(localStorage.getItem("urls"));
     // console.log(this.localStorageLinks);
-    // }
   }
 };
 </script>
