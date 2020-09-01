@@ -1,6 +1,6 @@
 <template>
   <div class="house doubled-container">
-    <div class="shortener">
+    <div class="shortener" v-loading="loading" element-loading-text="Processing...">
       <div class="input-area">
         <el-form :model="ruleForm" :rules="rules" ref="ruleForm">
           <el-row :gutter="20">
@@ -27,16 +27,16 @@
       </div>
     </div>
 
-    <div v-if="localStorageLinks">
-      <el-row class="results" v-for="links in localStorageLinks" :key="links.hashid">
+    <div v-if="links.length > 0">
+      <el-row class="results" v-for="link in links" :key="link.hashid">
         <el-col :xs="24" :span="16">
           <div class="grid-content bg-purple">
-            <p>{{links.url.substring(0, 50)}}...</p>
+            <p>{{ link.url.substring(0, 50) }}...</p>
           </div>
         </el-col>
         <el-col :xs="24" :span="5" class="divider" style="margin-top: 0">
           <div class="grid-content bg-purple-light">
-            <a href="#">https://rel.ink/{{links.hashid}}</a>
+            <a href="#">https://rel.ink/{{ link.hashid }}</a>
           </div>
         </el-col>
         <el-col :xs="24" :span="3" style="margin-top: 0">
@@ -53,12 +53,18 @@
 import axios from "axios";
 export default {
   name: "LinkShortenerSectionComponent",
+  mounted() {
+    // fetchUrls: JSON.parse(localStorage.getItem("urls"));
+  },
   data() {
     return {
-      localStorageLinks: JSON.parse(localStorage.getItem("urls")),
+      loading: false,
+      // localStorageLinks: JSON.parse(localStorage.getItem("urls")),
       ruleForm: {
         link: ""
       },
+      // links: [],
+      added: [],
       showReseutls: false,
       rules: {
         link: [
@@ -74,6 +80,9 @@ export default {
   computed: {
     storage() {
       return JSON.parse(localStorage.getItem("urls"));
+    },
+    links() {
+      return this.added;
     }
   },
 
@@ -81,7 +90,72 @@ export default {
     shortenLink(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
-          console.log(this.ruleForm.link);
+          this.loading = true;
+
+          if (localStorage.getItem("urls") !== null) {
+            const found = JSON.parse(localStorage.getItem("urls")).find(
+              link => {
+                return link.url === this.ruleForm.link;
+              }
+            );
+            if (found == undefined) {
+              return axios
+                .post("https://rel.ink/api/links/", {
+                  url: this.ruleForm.link
+                })
+                .then(({ data }) => {
+                  this.added.push(data);
+                  let urls = JSON.parse(localStorage.getItem("urls")) || [];
+                  urls.push(data);
+                  localStorage.setItem("urls", JSON.stringify(urls));
+                  console.log(data);
+                  (this.loading = false),
+                    this.$message({
+                      type: "success",
+                      message: "URL link shortened successfully",
+                      duration: 5000,
+                      showClose: true
+                    });
+                  this.$refs[formName].resetFields();
+                })
+                .catch(err => {
+                  console.error(err);
+                });
+            } else {
+              this.$message({
+                type: "error",
+                message: "Sorry but that URL link is in your result list",
+                duration: 5000
+              });
+              this.loading = false;
+            }
+          } else {
+            console.log("hi");
+          }
+
+          // return axios
+          //   .post("https://rel.ink/api/links/", {
+          //     url: this.ruleForm.link
+          //   })
+          //   .then(({ data }) => {
+          //     this.added.push(data);
+          //     let urls = JSON.parse(localStorage.getItem("urls")) || [];
+          //     urls.push(data);
+          //     localStorage.setItem("urls", JSON.stringify(urls));
+          //     console.log(data);
+          //     (this.loading = false),
+          //       this.$message({
+          //         type: "success",
+          //         message: "URL link shortened successfully",
+          //         duration: 5000,
+          //         showClose: true
+          //       });
+          //     this.$refs[formName].resetFields();
+          //   })
+          //   .catch(err => {
+          //     console.error(err);
+          //   });
+
           // if (localStorage.getItem("urls") !== null) {
           //   const found = JSON.parse(localStorage.getItem("urls")).find(
           //     link => {
@@ -89,26 +163,20 @@ export default {
           //     }
           //   );
           //   if (found == undefined) {
-          return axios
-            .post("https://rel.ink/api/links/", {
-              url: this.ruleForm.link
-            })
-            .then(({ data }) => {
-              let urls = JSON.parse(localStorage.getItem("urls")) || [];
+          // return axios
+          //   .post("https://rel.ink/api/links/", {
+          //     url: this.ruleForm.link
+          //   })
+          //   .then(({ data }) => {
+          //     let urls = JSON.parse(localStorage.getItem("urls")) || [];
 
-              urls.push(data);
-              localStorage.setItem("urls", JSON.stringify(urls));
-              this.$refs[formName].resetFields();
+          //     urls.push(data);
+          //     localStorage.setItem("urls", JSON.stringify(urls));
+          //     this.$refs[formName].resetFields();
 
-              this.$notify({
-                title: "Success",
-                message: "URL Link Shorten successfully",
-                type: "success"
-              });
-            })
-            .catch(err => {
-              console.error(err);
-            });
+          // .catch(err => {
+          //   console.error(err);
+          // });
           // }
           // else {
           //   this.$notify.error({
@@ -118,9 +186,17 @@ export default {
           // }
           // return;
           // }
+          //   } else {
+          //     console.log("error submit!!");
+          //     return false;
+          //   }
+          // });
         } else {
-          console.log("error submit!!");
-          return false;
+          this.$message({
+            type: "error",
+            message: "Oops there seems to be an error.",
+            duration: 5000
+          });
         }
       });
     }
