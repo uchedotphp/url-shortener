@@ -23,8 +23,8 @@ export default {
     JumbotronSection,
     AdvancedStatisticsSection,
     GetStartedSection,
-    FooterSection
-  }
+    FooterSection,
+  },
 };
 </script>
 
@@ -140,10 +140,6 @@ $veryDarkViolet: hsl(260, 8%, 14%);
   text-decoration: none;
   text-transform: uppercase;
 }
-
-// .button-link + .button-link {
-//   margin-top: 1.5em; //Only apply a top margin to button-links that immediately follow another button-link
-// }
 
 #app {
   font-weight: 500;
