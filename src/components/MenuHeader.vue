@@ -1,44 +1,44 @@
 <template>
   <div class="doubled-container">
     <nav class="menuItems">
-      <div class="left">
-        <div>
-          <img
-            style="align-self: center;"
-            src="./../assets/images/logo.svg"
-            alt=""
-          />
+      <a href="#">
+        <img src="./../assets/images/logo.svg" alt="" />
+      </a>
+      <div class="menu">
+        <!-- <div class="box"> -->
+        <div class="left">
+          <ul>
+            <li>
+              <a href="#">
+                features
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                pricing
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                resources
+              </a>
+            </li>
+          </ul>
         </div>
-        <ul>
-          <li>
-            <a href="#">
-              features
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              pricing
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              resources
-            </a>
-          </li>
-        </ul>
+        <div class="right">
+          <ul>
+            <li>
+              <a href="#">
+                login
+              </a>
+            </li>
+            <li>
+              <button class="rounded-button">SignUp</button>
+            </li>
+          </ul>
+        </div>
       </div>
-      <div class="right">
-        <ul>
-          <li>
-            <a href="#">
-              login
-            </a>
-          </li>
-          <li>
-            <button class="rounded-button">SignUp</button>
-          </li>
-        </ul>
-      </div>
+      <!-- </div> -->
       <a href="javascript:void(0)" class="icon">
         <ion-icon name="menu-outline"></ion-icon>
       </a>
@@ -56,81 +56,137 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.icon {
-  display: none;
-}
-
 .menuItems {
-  display: flex;
+  overflow: hidden;
+  // display: flex;
+  // display: inline-block;
+  // flex-direction: column;
   // justify-content: space-between;
   // display: grid;
   // grid-template-columns: auto auto;
-  justify-content: space-between;
-  align-items: baseline;
+  // justify-content: space-between;
+  // align-items: baseline;
   margin: 1em 0;
+  position: relative;
   // background: red;
 
-  .left {
-    // background: blue;
-    // margin-top: 0;
-    div {
-      display: inline-block;
-      // background: purple;
-      margin-right: 1em;
-      // height: 150px;
-      // width: 200px;
-      img {
-        width: 100%;
-        // height: 100%;
-        // object-fit: cover;
-      }
-    }
-    ul {
-      list-style: none;
-      display: inline-block;
-      margin-top: 0;
+  a {
+    // display: inline-block;
+    // display: block;
+    // background: purple;
+    margin-right: 1em;
+    padding: 1.2em 0;
+    float: left;
+    // padding-right: 3em;
+    // height: 150px;
+    // width: 200px;
+    // margin: 0 auto;
+    // vertical-align: middle;
 
-      li {
-        display: inline-block;
-
-        a {
-          display: block;
-          padding: 0 1em;
-          text-decoration: none;
-          text-transform: capitalize;
-          color: hsl(0, 0%, 75%);
-
-          &:hover {
-            color: hsl(260, 8%, 14%);
-          }
-        }
-      }
+    img {
+      // max-width: 100%;
+      // max-height: 100%;
+      // display: block;
+      // margin: 0 auto;
+      // width: 100%;
+      // text-align: center;
+      // height: 100%;
+      // object-fit: cover;
+      // display: inline-block;
     }
   }
-
-  .right {
+  .menu {
     margin-top: 0;
+    display: flex;
     // background: green;
-    ul {
-      list-style: none;
-      display: inline-block;
+    // flex-direction: column;
+    justify-content: space-between;
+    // margin-right: auto;
+    align-items: baseline;
+    // .box {
+    //   display: flex;
+    //   align-items: baseline;
+    //   justify-content: space-between;
 
+    .left {
+      // background: blue;
+      margin-top: 0;
+      ul {
+        list-style: none;
+        // display: inline-block;
+        // display: none;
+        margin-top: 0;
+      }
       li {
         display: inline-block;
-        margin-top: 0;
+      }
+      a {
+        display: block;
+        padding: 0 1em;
+        text-decoration: none;
+        text-transform: capitalize;
+        color: hsl(0, 0%, 75%);
 
-        a {
-          display: block;
-          padding: 0 2em;
-          text-decoration: none;
-          text-transform: capitalize;
-          color: hsl(0, 0%, 75%);
+        &:hover {
+          color: hsl(260, 8%, 14%);
+        }
+      }
+    }
 
-          &:hover {
-            color: hsl(260, 8%, 14%);
+    .right {
+      margin-top: 0;
+      // background: green;
+      // margin-left: auto;
+      ul {
+        list-style: none;
+        display: inline-block;
+        // display: none;
+
+        li {
+          display: inline-block;
+          margin-top: 0;
+
+          a {
+            display: block;
+            padding: 0 2em;
+            text-decoration: none;
+            text-transform: capitalize;
+            color: hsl(0, 0%, 75%);
+
+            &:hover {
+              color: hsl(260, 8%, 14%);
+            }
           }
         }
       }
+    }
+    // }
+  }
+
+  .icon {
+    display: none;
+    color: hsl(0, 0%, 75%);
+    position: absolute;
+    right: 0;
+    top: 0;
+    // height: 150px;
+  }
+}
+
+@media (max-width: 640px) {
+  .menuItems {
+    .left {
+      ul {
+        display: none;
+      }
+    }
+    .right {
+      ul {
+        display: none;
+      }
+    }
+    .icon {
+      display: block;
     }
   }
 }
