@@ -201,8 +201,9 @@ export default {
 
         .left {
           // text-align: center;
-          background: red;
+          // background: red;
           margin: 1em;
+          padding: 1em 3em;
           // display: ;
           a {
             margin-top: 0;
@@ -227,6 +228,7 @@ export default {
           border-top: 1px solid #fff;
           margin: 1em;
           a {
+            margin: 1.5em;
             display: block;
             padding: 0 2em;
             text-decoration: none;
@@ -258,7 +260,7 @@ export default {
       right: 0;
       top: 0;
       font-size: 2em;
-      padding: 0.5em 0;
+      padding: 0 0;
     }
   }
 }
