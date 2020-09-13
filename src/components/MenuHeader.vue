@@ -4,38 +4,24 @@
       <a href="#">
         <img src="./../assets/images/logo.svg" alt="" />
       </a>
-      <div class="menu" v-if="barStatus == false">
+      <div class="menu" v-if="barStatus">
         <!-- <div class="box"> -->
         <div class="left">
-          <ul>
-            <li>
-              <a href="#">
-                features
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                pricing
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                resources
-              </a>
-            </li>
-          </ul>
+          <a href="#">
+            features
+          </a>
+          <a href="#">
+            pricing
+          </a>
+          <a href="#">
+            resources
+          </a>
         </div>
         <div class="right">
-          <ul>
-            <li>
-              <a href="#">
-                login
-              </a>
-            </li>
-            <li>
-              <button class="rounded-button">SignUp</button>
-            </li>
-          </ul>
+          <a href="#">
+            login
+          </a>
+          <button class="rounded-button">SignUp</button>
         </div>
       </div>
       <a @click="openBars" href="javascript:void(0)" class="icon">
@@ -78,7 +64,7 @@ export default {
   name: "MenuHeaderComponent",
   data() {
     return {
-      barStatus: false,
+      barStatus: true,
     };
   },
   methods: {
@@ -99,7 +85,7 @@ export default {
     a {
       // background: purple;
       margin-right: 1em;
-      padding: 1.2em 0;
+      padding: 0.5em 0;
       float: left;
 
       img {
@@ -116,28 +102,29 @@ export default {
     }
     .menu {
       margin-top: 0;
-      // display: flex;
-      display: none;
-      // background: green;
+      display: flex;
+      // display: none;
+      background: green;
       justify-content: space-between;
       // margin-right: auto;
-      align-items: baseline;
+      // align-items: baseline;
 
       .left {
         // background: blue;
         margin-top: 0;
-        ul {
-          list-style: none;
-          // display: inline-block;
-          // display: none;
-          margin-top: 0;
-        }
-        li {
-          display: inline-block;
-        }
+        // ul {
+        //   list-style: none;
+        //   // display: inline-block;
+        //   // display: none;
+        //   margin-top: 0;
+        // }
+        // li {
+        //   display: inline-block;
+        // }
         a {
-          display: block;
-          padding: 0 1em;
+          margin-top: 0;
+          display: inline-block;
+          padding: 1em 1em;
           text-decoration: none;
           text-transform: capitalize;
           color: hsl(0, 0%, 75%);
@@ -151,19 +138,20 @@ export default {
       .right {
         margin-top: 0;
         // background: green;
-        ul {
-          list-style: none;
-          display: inline-block;
-          // display: none;
-        }
+        // ul {
+        //   list-style: none;
+        //   display: inline-block;
+        //   // display: none;
+        // }
 
-        li {
-          display: inline-block;
-          margin-top: 0;
-        }
+        // li {
+        //   display: inline-block;
+        //   margin-top: 0;
+        // }
         a {
+          margin-top: 0;
           display: block;
-          padding: 0 2em;
+          padding: 1em 2em;
           text-decoration: none;
           text-transform: capitalize;
           color: hsl(0, 0%, 75%);
@@ -171,6 +159,10 @@ export default {
           &:hover {
             color: hsl(260, 8%, 14%);
           }
+        }
+
+        button {
+          margin-top: 0;
         }
       }
       // }
@@ -196,10 +188,10 @@ export default {
       .menu {
         // margin-top: 2em;
         top: 5em;
-        width: 78vmin;
+        // width: 78vmin;
         padding: 1em 0;
-        align-items: center;
-        // text-align: center;
+        // align-items: center;
+        text-align: center;
         z-index: 1;
         display: flex;
         flex-direction: column;
@@ -208,19 +200,14 @@ export default {
         border-radius: 15px;
 
         .left {
-          text-align: center;
+          // text-align: center;
           background: red;
           margin: 1em;
-          ul {
-            list-style: none;
-          }
-          li {
-            display: block;
-            margin-top: 0;
-          }
+          // display: ;
           a {
+            margin-top: 0;
             display: block;
-            padding: 0.5em 0;
+            // padding: 0.5em 0;
             text-decoration: none;
             text-transform: capitalize;
             color: #fff;
@@ -233,31 +220,29 @@ export default {
         }
 
         .right {
+          // text-align: center;
           // background: green;
           text-align: center;
-          width: 65vmin;
+          // width: 65vmin;
           border-top: 1px solid #fff;
           margin: 1em;
-          ul {
-            list-style: none;
-          }
-          li {
-            display: block;
-            margin-top: 0;
-            padding: 1.2em 0;
-          }
           a {
             display: block;
             padding: 0 2em;
             text-decoration: none;
             text-transform: capitalize;
             color: #fff;
+            // text-align: center;
+            // background: red;
 
             font-size: 1.1em;
 
             &:hover {
               color: hsl(260, 8%, 14%);
             }
+          }
+          button {
+            width: 100%;
           }
         }
       }
