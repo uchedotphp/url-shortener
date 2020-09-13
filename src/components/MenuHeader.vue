@@ -203,7 +203,7 @@ export default {
           // text-align: center;
           // background: red;
           margin: 1em;
-          padding: 1em 3em;
+          padding: 0em 3em;
           // display: ;
           a {
             margin-top: 0;
