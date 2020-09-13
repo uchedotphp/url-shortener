@@ -4,7 +4,7 @@
       <a href="#">
         <img src="./../assets/images/logo.svg" alt="" />
       </a>
-      <div class="menu" v-if="barStatus">
+      <div class="menu" id="myTopnav">
         <!-- <div class="box"> -->
         <div class="left">
           <a href="#">
@@ -64,12 +64,17 @@ export default {
   name: "MenuHeaderComponent",
   data() {
     return {
-      barStatus: true,
+      // barStatus: true,
     };
   },
   methods: {
     openBars() {
-      this.barStatus = this.barStatus == false ? true : false;
+      var x = document.getElementById("myTopnav");
+      if (x.className === "menu") {
+        x.className += " responsive";
+      } else {
+        x.className = "menu";
+      }
     },
   },
 };
@@ -83,44 +88,21 @@ export default {
     // background: red;
 
     a {
-      // background: purple;
       margin-right: 1em;
       padding: 0.5em 0;
       float: left;
 
       img {
-        // max-width: 100%;
-        // max-height: 100%;
-        // display: block;
-        // margin: 0 auto;
-        // width: 100%;
-        // text-align: center;
-        // height: 100%;
-        // object-fit: cover;
-        // display: inline-block;
       }
     }
     .menu {
       margin-top: 0;
       display: flex;
-      // display: none;
-      background: green;
       justify-content: space-between;
-      // margin-right: auto;
-      // align-items: baseline;
 
       .left {
         // background: blue;
         margin-top: 0;
-        // ul {
-        //   list-style: none;
-        //   // display: inline-block;
-        //   // display: none;
-        //   margin-top: 0;
-        // }
-        // li {
-        //   display: inline-block;
-        // }
         a {
           margin-top: 0;
           display: inline-block;
@@ -137,17 +119,6 @@ export default {
 
       .right {
         margin-top: 0;
-        // background: green;
-        // ul {
-        //   list-style: none;
-        //   display: inline-block;
-        //   // display: none;
-        // }
-
-        // li {
-        //   display: inline-block;
-        //   margin-top: 0;
-        // }
         a {
           margin-top: 0;
           display: block;
@@ -193,9 +164,10 @@ export default {
         // align-items: center;
         text-align: center;
         z-index: 1;
-        display: flex;
+        // display: flex;
+        display: none;
         flex-direction: column;
-        position: absolute;
+        // position: absolute;
         background: hsl(257, 27%, 26%);
         border-radius: 15px;
 
@@ -261,6 +233,20 @@ export default {
       top: 0;
       font-size: 2em;
       padding: 0 0;
+    }
+
+    .menu.responsive {
+      position: absolute;
+      display: flex;
+    }
+
+    .menu.responsive .icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .menu.responsive a {
+      display: block;
     }
   }
 }
