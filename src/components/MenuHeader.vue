@@ -62,11 +62,6 @@
 <script>
 export default {
   name: "MenuHeaderComponent",
-  data() {
-    return {
-      // barStatus: true,
-    };
-  },
   methods: {
     openBars() {
       var x = document.getElementById("myTopnav");
@@ -173,18 +168,21 @@ export default {
 
         .left {
           // text-align: center;
-          // background: red;
+          // background: green;
           margin: 1em;
           padding: 0em 3em;
+          // margin: 0 auto;
           // display: ;
           a {
             margin-top: 0;
             display: block;
+            // text-align: center;
             // padding: 0.5em 0;
             text-decoration: none;
             text-transform: capitalize;
             color: #fff;
             font-size: 1.1em;
+            // background: red;
 
             &:hover {
               color: hsl(260, 8%, 14%);
@@ -238,16 +236,21 @@ export default {
     .menu.responsive {
       position: absolute;
       display: flex;
+      // justify-content: center;
+      // background: blue;
+      justify-content: center;
+      align-items: center;
+      align-self: center;
     }
 
-    .menu.responsive .icon {
-      position: absolute;
-      right: 0;
-      top: 0;
-    }
-    .menu.responsive a {
-      display: block;
-    }
+    // .menu.responsive .icon {
+    //   position: absolute;
+    //   right: 0;
+    //   top: 0;
+    // }
+    // .menu.responsive a {
+    //   display: block;
+    // }
   }
 }
 </style>
